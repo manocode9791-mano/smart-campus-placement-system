@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs - Smart Campus Placement</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f7fc;
+}
+
+.header{
+    background:#1e293b;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+.form-box, .jobs-box{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    color:#2563eb;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+}
+
+.post-btn{
+    background:#2563eb;
+}
+.post-btn:hover{
+    background:#1d4ed8;
+}
+
+.apply-btn{
+    background:green;
+    margin-top:10px;
+}
+.apply-btn:hover{
+    background:darkgreen;
+}
+
+.remove-btn{
+    background:red;
+    margin-top:10px;
+}
+.remove-btn:hover{
+    background:darkred;
+}
+
+.job{
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+    background:#fafafa;
+}
+
+.job h3{
+    margin:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Jobs Management System</h2>
+</div>
+
+<div class="container">
+
+<!-- POST JOB -->
+<div class="form-box">
+    <h2>Post a Job</h2>
+
+    <input type="text" id="title" placeholder="Job Title">
+    <input type="text" id="company" placeholder="Company Name">
+    <input type="text" id="location" placeholder="Location">
+    <input type="text" id="package" placeholder="Package (LPA)">
+
+    <!-- ✅ NEW SKILLS FIELD -->
+    <input type="text" id="skills" placeholder="Skills (Java, Python, React...)">
+
+    <textarea id="desc" placeholder="Job Description"></textarea>
+
+    <button class="post-btn" onclick="postJob()">Post Job</button>
+</div>
+
+<!-- JOB LIST -->
+<div class="jobs-box">
+    <h2>Posted Jobs</h2>
+    <div id="jobList"></div>
+</div>
+
+</div>
+
+<script>
+
+// initial jobs
+let jobs = [
+{
+    title:"Software Engineer",
+    company:"Google",
+    location:"Bangalore",
+    package:"18-40 LPA",
+    skills:"Java, DSA",
+    desc:"Java, DSA required"
+},
+{
+    title:"Frontend Developer",
+    company:"Microsoft",
+    location:"Hyderabad",
+    package:"15-30 LPA",
+    skills:"React, JavaScript",
+    desc:"React, JS required"
+}
+];
+
+// DISPLAY JOBS
+function displayJobs(){
+    let container = document.getElementById("jobList");
+    container.innerHTML = "";
+
+    jobs.forEach((job, index) => {
+        container.innerHTML += `
+            <div class="job">
+                <h3>${job.title} - ${job.company}</h3>
+                <p><b>Location:</b> ${job.location}</p>
+                <p><b>Package:</b> ${job.package}</p>
+
+                <!-- ✅ NEW SKILLS DISPLAY -->
+                <p><b>Skills:</b> ${job.skills}</p>
+
+                <p>${job.desc}</p>
+
+                <button class="apply-btn" onclick="applyJob('${job.title}')">
+                    Apply Now
+                </button>
+
+                <button class="remove-btn" onclick="removeJob(${index})">
+                    Remove Job
+                </button>
+            </div>
+        `;
+    });
+}
+
+// POST JOB
+function postJob(){
+
+    let title = document.getElementById("title").value;
+    let company = document.getElementById("company").value;
+    let location = document.getElementById("location").value;
+    let package = document.getElementById("package").value;
+    let skills = document.getElementById("skills").value;
+    let desc = document.getElementById("desc").value;
+
+    if(title === "" || company === ""){
+        alert("Please fill required fields!");
+        return;
+    }
+
+    jobs.push({
+        title,
+        company,
+        location,
+        package,
+        skills,
+        desc
+    });
+
+    displayJobs();
+
+    alert("Job Posted Successfully 🚀");
+
+    // clear inputs
+    document.getElementById("title").value = "";
+    document.getElementById("company").value = "";
+    document.getElementById("location").value = "";
+    document.getElementById("package").value = "";
+    document.getElementById("skills").value = "";
+    document.getElementById("desc").value = "";
+}
+
+// APPLY JOB
+function applyJob(jobTitle){
+    alert("Applying for: " + jobTitle);
+    window.location.href = "apply.html";
+}
+
+// REMOVE JOB
+function removeJob(index){
+    if(confirm("Are you sure you want to remove this job?")){
+        jobs.splice(index, 1);
+        displayJobs();
+        alert("Job Removed Successfully ❌");
+    }
+}
+
+// INIT
+displayJobs();
+
+</script>
+
+</body>
+</html>

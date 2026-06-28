@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Students - Smart Campus Placement</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f7fc;
+}
+
+.header{
+    background:#1e293b;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+}
+
+/* STUDENT CARD */
+.card{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+}
+
+.card h3{
+    margin:0;
+    color:#2563eb;
+}
+
+.info{
+    font-size:14px;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+/* STATUS TAGS */
+.tag{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:6px;
+    color:white;
+    font-size:12px;
+    margin-top:8px;
+}
+
+.placed{background:green;}
+.applying{background:orange;}
+.notplaced{background:red;}
+
+button{
+    width:100%;
+    margin-top:10px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#2563eb;
+    color:white;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Students Information System</h2>
+</div>
+
+<div class="container">
+
+<div class="grid">
+
+<!-- 15 STUDENTS -->
+
+<div class="card">
+    <h3>Manoj</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 8.5 <br>
+        Skills: Java, DSA, SQL <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag placed">Placed</span>
+    <button onclick="alert('Profile Viewed: Manoj')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Ravi</h3>
+    <div class="info">
+        Department: IT <br>
+        CGPA: 7.9 <br>
+        Skills: Python, ML <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag applying">Applying</span>
+    <button onclick="alert('Profile Viewed: Ravi')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Priya</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 9.1 <br>
+        Skills: React, Node.js <br>
+        Year: 4th Year
+    </div>
+    <span class="tag placed">Placed</span>
+    <button onclick="alert('Profile Viewed: Priya')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Arjun</h3>
+    <div class="info">
+        Department: ECE <br>
+        CGPA: 8.0 <br>
+        Skills: Embedded Systems <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag notplaced">Not Placed</span>
+    <button onclick="alert('Profile Viewed: Arjun')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Karthik</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 8.7 <br>
+        Skills: Java, Spring Boot <br>
+        Year: 4th Year
+    </div>
+    <span class="tag placed">Placed</span>
+    <button onclick="alert('Profile Viewed: Karthik')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Divya</h3>
+    <div class="info">
+        Department: IT <br>
+        CGPA: 9.0 <br>
+        Skills: Data Science <br>
+        Year: 4th Year
+    </div>
+    <span class="tag applying">Applying</span>
+    <button onclick="alert('Profile Viewed: Divya')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Vikram</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 7.5 <br>
+        Skills: C++, DSA <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag notplaced">Not Placed</span>
+    <button onclick="alert('Profile Viewed: Vikram')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Sneha</h3>
+    <div class="info">
+        Department: ECE <br>
+        CGPA: 8.3 <br>
+        Skills: IoT, Python <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag applying">Applying</span>
+    <button onclick="alert('Profile Viewed: Sneha')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Rahul</h3>
+    <div class="info">
+        Department: MECH <br>
+        CGPA: 7.2 <br>
+        Skills: AutoCAD <br>
+        Year: 4th Year
+    </div>
+    <span class="tag notplaced">Not Placed</span>
+    <button onclick="alert('Profile Viewed: Rahul')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Anjali</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 9.2 <br>
+        Skills: AI, ML <br>
+        Year: 4th Year
+    </div>
+    <span class="tag placed">Placed</span>
+    <button onclick="alert('Profile Viewed: Anjali')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Deepak</h3>
+    <div class="info">
+        Department: IT <br>
+        CGPA: 7.8 <br>
+        Skills: PHP, MySQL <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag applying">Applying</span>
+    <button onclick="alert('Profile Viewed: Deepak')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Harini</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 8.9 <br>
+        Skills: Full Stack Dev <br>
+        Year: 4th Year
+    </div>
+    <span class="tag placed">Placed</span>
+    <button onclick="alert('Profile Viewed: Harini')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Ajay</h3>
+    <div class="info">
+        Department: ECE <br>
+        CGPA: 7.6 <br>
+        Skills: VLSI <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag notplaced">Not Placed</span>
+    <button onclick="alert('Profile Viewed: Ajay')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Meena</h3>
+    <div class="info">
+        Department: CSE <br>
+        CGPA: 8.8 <br>
+        Skills: React, Java <br>
+        Year: 4th Year
+    </div>
+    <span class="tag placed">Placed</span>
+    <button onclick="alert('Profile Viewed: Meena')">View Profile</button>
+</div>
+
+<div class="card">
+    <h3>Suresh</h3>
+    <div class="info">
+        Department: IT <br>
+        CGPA: 7.3 <br>
+        Skills: Networking <br>
+        Year: 3rd Year
+    </div>
+    <span class="tag notplaced">Not Placed</span>
+    <button onclick="alert('Profile Viewed: Suresh')">View Profile</button>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
